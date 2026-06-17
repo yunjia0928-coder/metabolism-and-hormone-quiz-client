@@ -189,7 +189,7 @@ function publicTopTypes(){
  const topScore=ranked[0][1];
  const tied=ranked.filter(([,v])=>v===topScore).map(([k])=>publicTypeNames[k]);
  return tied.join('、');
-}"
+}
 
 function updateScores(){
  const total=[...document.querySelectorAll('input[data-score]')].filter(cb=>cb.dataset.text!=='無以上狀況').length;
