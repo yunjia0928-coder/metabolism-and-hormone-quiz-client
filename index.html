@@ -3,34 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>珈巴霸營養師｜代謝・荷爾蒙狀態問卷</title>
+<title>珈巴霸營養師 | 代謝．荷爾蒙狀態問卷</title>
 <style>
 :root{
   --bg:#f7f3ee;--card:#fffaf5;--ink:#273238;--muted:#6d7478;--line:#e7ddd3;
   --brand:#a47764;--brand2:#7f9a8f;--soft:#efe5dc;--danger:#b85c5c;--ok:#5d8a72;
-  --E:#b76e79;--T:#7696b2;--A:#8d7bb2;--C:#c6925b;--L:#7f9a72;--P:#d08a71;
 }
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#f9f4ed,#f4eee7);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.55}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#f9f4ed,#f4eee7);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.55}
 header{padding:34px 18px 22px;text-align:center;background:radial-gradient(circle at 50% 0%,#fff 0,#f7eee6 48%,#efe4da 100%);border-bottom:1px solid var(--line)}
-h1{margin:0;font-size:clamp(25px,4vw,42px);letter-spacing:.04em}.subtitle{margin:10px auto 0;max-width:800px;color:var(--muted)}
+h1{margin:0;font-size:clamp(25px,4vw,42px);letter-spacing:.04em}.subtitle{margin:10px auto 0;max-width:820px;color:var(--muted)}
 .wrap{max-width:1180px;margin:0 auto;padding:22px 16px 80px}.topgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
 .card{background:rgba(255,250,245,.92);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 30px rgba(88,66,49,.06)}
-.notice{font-size:14px;color:#5e6668;background:#fff;border-left:4px solid var(--brand2)}
 .fields{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.field label{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink);font:inherit}.field.full{grid-column:1/-1}.field.half{grid-column:span 2}.subsection{grid-column:1/-1;margin-top:8px;padding-top:12px;border-top:1px dashed var(--line)}.subsection h3{margin:0 0 10px;font-size:15px;color:#6d4838}.checkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.miniopt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:9px;background:#fff}.miniopt input{margin-top:4px}
-.sticky{position:sticky;top:12px}.scorebar{display:grid;gap:10px}.axis{display:grid;grid-template-columns:74px 1fr 44px;gap:10px;align-items:center}.axis b{font-size:14px}.meter{height:12px;background:#eee4db;border-radius:999px;overflow:hidden}.meter span{display:block;height:100%;width:0;background:var(--brand);transition:.25s}.tagE .meter span{background:var(--E)}.tagT .meter span{background:var(--T)}.tagA .meter span{background:var(--A)}.tagC .meter span{background:var(--C)}.tagL .meter span{background:var(--L)}.tagP .meter span{background:var(--P)}
+.sticky{position:sticky;top:12px}.scorebar{display:grid;gap:10px}.axis{display:grid;grid-template-columns:84px 1fr 56px;gap:10px;align-items:center}.axis b{font-size:14px}.meter{height:12px;background:#eee4db;border-radius:999px;overflow:hidden}.meter span{display:block;height:100%;width:0;background:var(--brand);transition:.25s}
 .resultbox{margin-top:14px;padding:14px;border-radius:16px;background:#f5eee7;border:1px dashed #d3c3b6;font-size:14px}.resultbox strong{color:#6d4838}
-.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.btn{border:0;border-radius:999px;padding:11px 16px;background:var(--brand);color:#fff;cursor:pointer;font-weight:700}.btn.secondary{background:#fff;color:var(--brand);border:1px solid var(--brand)}.btn.ghost{background:#ebe2d9;color:#5e5149}
-.section{margin-top:16px}.qhead{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-bottom:10px}.qtitle{font-size:18px;font-weight:800}.qdesc{font-size:13px;color:var(--muted)}.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.opt{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 10px;min-height:48px}.opt:hover{border-color:#cdb8a8}.opt input{margin-top:4px;transform:scale(1.1)}.chips{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.chip{font-size:11px;line-height:1;padding:4px 6px;border-radius:999px;color:#fff;font-weight:800}.chip.E{background:var(--E)}.chip.T{background:var(--T)}.chip.A{background:var(--A)}.chip.C{background:var(--C)}.chip.L{background:var(--L)}.chip.P{background:var(--P)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.btn{border:0;border-radius:999px;padding:11px 16px;background:var(--brand);color:#fff;cursor:pointer;font-weight:700}.btn.secondary{background:#fff;color:var(--brand);border:1px solid var(--brand)}.btn.ghost{background:#ebe2d9;color:#5e5149}.btn.ok{background:var(--ok)}.btn:disabled{opacity:.55;cursor:not-allowed}
+.section{margin-top:16px}.qhead{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-bottom:10px}.qtitle{font-size:18px;font-weight:800}.qdesc{font-size:13px;color:var(--muted)}.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.opt{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 10px;min-height:48px}.opt:hover{border-color:#cdb8a8}.opt input{margin-top:4px;transform:scale(1.1)}
 .summary{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;font-size:14px;max-height:360px;overflow:auto}.small{font-size:13px;color:var(--muted)}
-footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}.warn{color:var(--danger);font-weight:700}
+.status{margin-top:12px;font-size:14px}.status.ok{color:var(--ok);font-weight:700}.status.err{color:var(--danger);font-weight:700}
+footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}
 @media(max-width:920px){.topgrid{grid-template-columns:1fr}.sticky{position:static}.fields{grid-template-columns:repeat(2,1fr)}.opts{grid-template-columns:1fr}.checkgrid{grid-template-columns:1fr}}
 @media print{header,.controls,.btn{display:none}.wrap{max-width:none}.topgrid{grid-template-columns:1fr}.sticky{position:static}.card{box-shadow:none;break-inside:avoid}.section{break-inside:avoid}.opts{grid-template-columns:repeat(2,1fr)}body{background:#fff}}
 </style>
 </head>
 <body>
 <header>
-  <h1>珈巴霸營養師｜代謝・荷爾蒙狀態問卷</h1>
-  <p class="subtitle">請依照最近 1–3 個月的身體狀態填寫。每一區可複選，越符合日常狀況越建議勾選；若該區都沒有符合，請勾選「無以上狀況」。填完後營養師會依結果與你的生活型態、飲食、檢查數據一起討論。</p>
+  <h1>珈巴霸營養師 | 代謝．荷爾蒙狀態問卷</h1>
+  <p class="subtitle">請依照最近 1–3 個月的身體狀態填寫。每一區可複選，越符合日常狀況越建議勾選；若該區都沒有符合，請勾選「無以上狀況」。送出後，營養師會依結果與你的生活型態、飲食、檢查數據一起整理諮詢方向。</p>
 </header>
 <div class="wrap">
   <div class="topgrid">
@@ -59,130 +59,95 @@ footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}.warn
           </div>
         </div>
 
-        <div class="subsection">
-          <h3>身體數據與檢查</h3>
-          <div class="fields">
-            <div class="field"><label>身高</label><input id="height" placeholder="cm"></div>
-            <div class="field"><label>體重</label><input id="weight" placeholder="kg"></div>
-            <div class="field"><label>腰圍</label><input id="waist" placeholder="cm / inch"></div>
-            <div class="field"><label>體脂率 / 骨骼肌量</label><input id="bodycomp" placeholder="例：體脂 32%、肌肉 20 kg"></div>
-            <div class="field"><label>血壓 / 心跳</label><input id="bp" placeholder="例：118/78，心跳 72"></div>
-            <div class="field"><label>血糖 / HbA1c / 胰島素</label><input id="glucose" placeholder="例：空腹血糖、HbA1c、HOMA-IR"></div>
-            <div class="field full"><label>近期檢查異常或重要病史</label><textarea id="labs" rows="2" placeholder="例：脂肪肝、膽結石、甲狀腺、血脂、維生素 D、婦科檢查等"></textarea></div>
-          </div>
-        </div>
+        <div class="subsection"><h3>身體數據與檢查</h3><div class="fields">
+          <div class="field"><label>身高</label><input id="height" placeholder="cm"></div>
+          <div class="field"><label>體重</label><input id="weight" placeholder="kg"></div>
+          <div class="field"><label>腰圍</label><input id="waist" placeholder="cm / inch"></div>
+          <div class="field"><label>體脂率 / 骨骼肌量</label><input id="bodycomp" placeholder="例：體脂 32%、肌肉 20 kg"></div>
+          <div class="field"><label>血壓 / 心跳</label><input id="bp" placeholder="例：118/78，心跳 72"></div>
+          <div class="field"><label>血糖 / HbA1c / 胰島素</label><input id="glucose" placeholder="例：空腹血糖、HbA1c、HOMA-IR"></div>
+          <div class="field full"><label>近期檢查異常或重要病史</label><textarea id="labs" rows="2" placeholder="例：脂肪肝、膽結石、甲狀腺、血脂、維生素 D、婦科檢查等"></textarea></div>
+        </div></div>
 
-        <div class="subsection">
-          <h3>用藥、保健品與特殊狀況</h3>
-          <div class="fields">
-            <div class="field half"><label>目前使用藥物</label><textarea id="meds" rows="2" placeholder="例：血壓藥、避孕藥、調經藥、甲狀腺藥、胃藥等"></textarea></div>
-            <div class="field half"><label>目前保健品</label><textarea id="supps" rows="2" placeholder="例：魚油、B群、鎂、益生菌、蛋白粉等"></textarea></div>
-            <div class="field half"><label>過敏 / 飲食禁忌</label><input id="allergy" placeholder="例：奶、蛋、麩質、海鮮、素食等"></div>
-            <div class="field half"><label>女性補充</label><input id="femaleInfo" placeholder="例：週期天數、經痛、經血量、懷孕/哺乳/停經"></div>
-          </div>
-        </div>
+        <div class="subsection"><h3>用藥、保健品與特殊狀況</h3><div class="fields">
+          <div class="field half"><label>目前使用藥物</label><textarea id="meds" rows="2" placeholder="例：血壓藥、避孕藥、調經藥、甲狀腺藥、胃藥等"></textarea></div>
+          <div class="field half"><label>目前保健品</label><textarea id="supps" rows="2" placeholder="例：魚油、B群、鎂、益生菌、蛋白粉等"></textarea></div>
+          <div class="field half"><label>過敏 / 飲食禁忌</label><input id="allergy" placeholder="例：奶、蛋、麩質、海鮮、素食等"></div>
+          <div class="field half"><label>女性補充</label><input id="femaleInfo" placeholder="例：週期天數、經痛、經血量、懷孕/哺乳/停經"></div>
+        </div></div>
 
-        <div class="subsection">
-          <h3>作息、運動與排便</h3>
-          <div class="fields">
-            <div class="field"><label>睡眠時間</label><input id="sleep" placeholder="例：01:00–08:00，半夜會醒"></div>
-            <div class="field"><label>上下班 / 上課時間</label><input id="worktime" placeholder="例：09:00–18:00 / 輪班"></div>
-            <div class="field"><label>壓力程度</label><select id="stress"><option value="">請選擇</option><option>低</option><option>中</option><option>高</option><option>非常高</option></select></div>
-            <div class="field"><label>運動習慣</label><input id="exercise" placeholder="例：重訓 3 次/週、日走 6000 步"></div>
-            <div class="field"><label>排便狀況</label><input id="bowel" placeholder="例：每天 1 次 / 便秘 / 腹瀉 / 脹氣"></div>
-            <div class="field"><label>月經期間排便變化</label><input id="cycleBowel" placeholder="例：經前便秘、經期腹瀉"></div>
-          </div>
-        </div>
+        <div class="subsection"><h3>作息、運動與排便</h3><div class="fields">
+          <div class="field"><label>睡眠時間</label><input id="sleep" placeholder="例：01:00–08:00，半夜會醒"></div>
+          <div class="field"><label>上下班 / 上課時間</label><input id="worktime" placeholder="例：09:00–18:00 / 輪班"></div>
+          <div class="field"><label>壓力程度</label><select id="stress"><option value="">請選擇</option><option>低</option><option>中</option><option>高</option><option>非常高</option></select></div>
+          <div class="field"><label>運動習慣</label><input id="exercise" placeholder="例：重訓 3 次/週、日走 6000 步"></div>
+          <div class="field"><label>排便狀況</label><input id="bowel" placeholder="例：每天 1 次 / 便秘 / 腹瀉 / 脹氣"></div>
+          <div class="field"><label>月經期間排便變化</label><input id="cycleBowel" placeholder="例：經前便秘、經期腹瀉"></div>
+        </div></div>
 
-        <div class="subsection">
-          <h3>飲食概況</h3>
-          <div class="fields">
-            <div class="field"><label>早餐</label><input id="breakfast" placeholder="平常早餐內容"></div>
-            <div class="field"><label>午餐</label><input id="lunch" placeholder="平常午餐內容"></div>
-            <div class="field"><label>晚餐</label><input id="dinner" placeholder="平常晚餐內容"></div>
-            <div class="field"><label>水量</label><input id="water" placeholder="例：1500 mL / 天"></div>
-            <div class="field"><label>正餐以外點心</label><input id="snacks" placeholder="例：甜食、飲料、咖啡、宵夜"></div>
-            <div class="field"><label>咖啡因 / 酒精頻率</label><input id="caffeineAlcohol" placeholder="例：咖啡 2 杯/天、酒 3 天/週"></div>
-            <div class="field full"><label>其他想補充的狀況</label><textarea id="notes" rows="2" placeholder="例：近期壓力事件、體重變化、外食頻率、正在執行的飲食法等"></textarea></div>
-          </div>
-        </div>
+        <div class="subsection"><h3>飲食概況</h3><div class="fields">
+          <div class="field"><label>早餐</label><input id="breakfast" placeholder="平常早餐內容"></div>
+          <div class="field"><label>午餐</label><input id="lunch" placeholder="平常午餐內容"></div>
+          <div class="field"><label>晚餐</label><input id="dinner" placeholder="平常晚餐內容"></div>
+          <div class="field"><label>水量</label><input id="water" placeholder="例：1500 mL / 天"></div>
+          <div class="field"><label>正餐以外點心</label><input id="snacks" placeholder="例：甜食、飲料、咖啡、宵夜"></div>
+          <div class="field"><label>咖啡因 / 酒精頻率</label><input id="caffeineAlcohol" placeholder="例：咖啡 2 杯/天、酒 3 天/週"></div>
+          <div class="field full"><label>其他想補充的狀況</label><textarea id="notes" rows="2" placeholder="例：近期壓力事件、體重變化、外食頻率、正在執行的飲食法等"></textarea></div>
+        </div></div>
       </div>
     </div>
-    <div class="card sticky">
-      <h2 style="margin:0 0 12px;font-size:20px">填寫進度</h2>
+
+    <aside class="card sticky">
+      <h2>填寫進度</h2>
       <div id="scorebar" class="scorebar"></div>
-      <div id="interpret" class="resultbox">請依照最近 1–3 個月的身體狀態勾選。填寫完成後，請按「產生填寫摘要」，再複製傳給營養師。</div>
+      <div id="interpret" class="resultbox">請依照最近 1–3 個月的身體狀態勾選。填寫完成後，請按「送出給營養師」。</div>
       <div class="controls">
-        <button class="btn" onclick="makeSummary()">產生填寫摘要</button>
+        <button id="submitBtn" class="btn ok" onclick="submitToSheet()">送出給營養師</button>
+        <button class="btn secondary" onclick="makeSummary()">產生填寫摘要</button>
         <button class="btn secondary" onclick="window.print()">列印 / 另存 PDF</button>
         <button class="btn ghost" onclick="resetAll()">清空重填</button>
       </div>
-    </div>
+      <div id="submitStatus" class="status"></div>
+      <p class="small">送出後，資料將提供營養師作為諮詢前整理使用。若有急性疼痛、異常出血、黃疸、嚴重低血糖或其他明顯不適，請優先就醫評估。</p>
+    </aside>
   </div>
 
-  <div class="card notice section">
+  <div class="card notice" style="margin-top:16px">
     <b>填寫方式：</b>請依照「最近 1–3 個月最常出現的狀況」填寫。每一區可複選；若該區都沒有符合，勾「無以上狀況」。若有不確定的項目，可以先勾選，並在上方補充欄簡單說明。
   </div>
 
   <div id="questions"></div>
 
-  <div class="card section">
-    <h2 style="margin-top:0">填寫摘要</h2>
+  <div class="card" style="margin-top:16px">
+    <h2>填寫摘要</h2>
     <div id="summary" class="summary">按「產生填寫摘要」後會整理：基本資料、生活型態與勾選項目。</div>
-    <div class="controls"><button class="btn secondary" onclick="copySummary()">複製給營養師</button><button class="btn secondary" onclick="downloadJSON()">下載填寫資料</button></div>
+    <div class="controls"><button class="btn secondary" onclick="copySummary()">複製給營養師</button><button class="btn ghost" onclick="downloadJSON()">下載填寫資料</button></div>
   </div>
 
   <footer>本問卷用於營養諮詢前資料整理，不等同疾病診斷。</footer>
 </div>
 <script>
+/* 重要：建立 Google Apps Script 後，把部署得到的 Web App URL 貼到下面引號內 */
+const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwoJrqko82K4syJR2MdAern3yJQvb78ML9YVcNp7USRZXpu3jhSDT1EbeFKMb6H794j/exec";
+const VERSION = "client-submit-v3-2026-06-17";
 const axes = {
- E:{name:'雌激素 / 黃體素平衡', color:'var(--E)'},
- T:{name:'甲狀腺 / 能量代謝', color:'var(--T)'},
- A:{name:'睪固酮 / 肌肉性慾', color:'var(--A)'},
- C:{name:'皮質醇 / 壓力節律', color:'var(--C)'},
- L:{name:'肝臟 / 膽汁解毒', color:'var(--L)'},
- P:{name:'胰島素 / 血糖代謝', color:'var(--P)'}
+ E:{name:'雌激素 / 黃體素平衡'}, T:{name:'甲狀腺 / 能量代謝'}, A:{name:'睪固酮 / 肌肉性慾'},
+ C:{name:'皮質醇 / 壓力節律'}, L:{name:'肝臟 / 膽汁解毒'}, P:{name:'胰島素 / 血糖代謝'}
 };
 const groups = [
-{title:'1｜肝膽脂肪代謝與飲酒史', desc:'偏向 L 肝臟/膽汁；高蛋白低碳無效可延伸追問血糖與甲狀腺。', items:[
- ['上腹部肥大隆起',{L:1,C:.5}], ['無法消化脂肪或油膩食物，尤其是在晚上更明顯',{L:1}], ['喜歡食用大量的蛋白質食品',{L:.5,A:.5}], ['每周飲酒三天以上',{L:1,C:.5}], ['曾經使用高蛋白飲食（例如 Atkins）也瘦不下來',{L:1,T:.5,P:.5}], ['曾經膽結石',{L:1}], ['膽囊摘除了',{L:1}], ['有肝病史（肝炎、肝膿瘍、脂肪肝、纖維化、腫瘤等）',{L:1}], ['無以上狀況',{}]
-]},
-{title:'2｜血糖、過敏與女性週期線索', desc:'皮膚摺痕變黑偏 P；過敏/皮膚困擾可連到發炎、肝腸與雌激素代謝。', items:[
- ['脖子、腋窩、胳膊、鼠蹊部等肢體摺痕處膚色特別黑',{P:1}], ['有皮膚搔癢、慢性濕疹、異位性皮膚炎等皮膚困擾',{L:.5,C:.5,E:.5}], ['有鼻子過敏搔癢、打噴嚏的困擾',{C:.5,L:.5}], ['（女性）深受經痛所苦',{E:1}], ['（女性）生理期有時候抓不到頻率',{E:1,C:.5,P:.5}], ['下午會特別想吃甜食或飲料',{P:1,C:.5}], ['常常吃飽後很快就覺得餓',{P:1}], ['無以上狀況',{}]
-]},
-{title:'3｜體重變化與食物渴望', desc:'甜食/麵食偏 P；鹹食巧克力偏 C；脂肪乳製品渴望可追問肝膽、甲狀腺與總熱量。', items:[
- ['飲食及生活沒有太多改變，卻在短時間內變胖',{T:1,C:1,P:.5}], ['會渴望甜食、糖飲、麵包或麵食',{P:1}], ['會渴望鹹的食物或巧克力',{C:1}], ['會渴望油炸食物或者馬鈴薯片',{L:1,P:.5}], ['會渴望冰淇淋、奶油、乳酪、優酪乳或牛奶',{T:.5,L:.5,P:.5}], ['無以上狀況',{}]
-]},
-{title:'4｜情緒、週期性易怒與性慾活力', desc:'焦慮緊張偏 C；週期性情緒與經前症狀偏 E；低活力性慾需看 A/T/C。', items:[
- ['經常感到不安焦慮和緊張',{C:1}], ['每個月特定時間喜怒無常、煩躁易怒',{E:1,C:.5}], ['經常感到沮喪或失望',{T:.5,C:.5}], ['早上常感到煩躁、喜怒無常、脾氣暴躁',{C:1,P:.5}], ['覺得已經失去活力和性慾',{A:1,T:.5,C:.5}], ['無以上狀況',{}]
-]},
-{title:'5｜咖啡依賴、右上腹與便秘', desc:'咖啡依賴偏 C；右上腹/肋下壓迫偏 L；便秘可追問 T、L、E 與纖維水分。', items:[
- ['需要咖啡或興奮劑才有辦法讓自己清醒',{C:1,T:.5}], ['腹部右上區域或肋骨側下部有壓迫感',{L:1}], ['覺得生活變得比較沒樂趣',{C:.5,T:.5}], ['比較喜歡吃水果或漿果類',{L:.5,P:.5}], ['經常便秘（女性：尤其在月經期間）',{T:1,L:.5,E:.5}], ['無以上狀況',{}]
-]},
-{title:'6｜脂肪分佈與體型', desc:'脂肪分佈不是診斷，但可幫助追問雌激素、皮質醇、血糖與肝臟代謝。', items:[
- ['體脂肪分佈不均勻',{E:.5,C:.5,P:.5}], ['腹部突出（大肚腩）',{C:1,P:1,L:.5}], ['大腿和臀部脂肪明顯（馬鞍部）、下腹凸出',{E:1}], ['肚皮油脂增厚了（游泳圈）',{P:1,C:.5}], ['腹部下垂，例如腹部垂懸、下垂、鬆弛',{C:.5,P:.5,A:.5}]
-]},
-{title:'7｜舌頭、肌力、熱潮紅與尿色', desc:'舌頭齒痕偏 T/水腫；肌力與勃起偏 A；熱潮紅偏 E；尿色偏 L/水分。', items:[
- ['舌頭的兩側常會被牙齒咬到',{T:1}], ['大腿肌肉無力或萎縮，難以從坐姿站起來',{A:1,T:.5,C:.5}], ['身體經常有熱潮紅',{E:1}], ['（男性）勃起時不夠堅挺',{A:1,P:.5,C:.5}], ['尿色暗黃',{L:1}], ['無以上狀況',{}]
-]},
-{title:'8｜冷熱感、晨間頭重與非經期出血', desc:'怕冷偏 T；發熱感/發炎可連到 C/L/P；非經期出血偏 E，須留意婦科就醫。', items:[
- ['經常覺得體內發熱，好像慢性發炎',{C:.5,L:.5,P:.5}], ['因為感覺冷，晚上穿襪子睡覺',{T:1}], ['經常早上覺得頭痛或頭很重',{C:.5,P:.5,L:.5}], ['（女性）經期外出血',{E:1}], ['經常覺得虛弱無元氣',{T:.5,C:.5,A:.5}], ['無以上狀況',{}]
-]},
-{title:'9｜疼痛、毛髮、指甲與骨質', desc:'右肩常見於肝膽反射線索；女性臉毛偏 A/P；指甲與骨質需追問 T、E、A、營養素。', items:[
- ['右下背部 / 臀部區域感到疼痛',{E:.5,C:.5}], ['性別是女性，但臉上有毛髮過長的困擾',{A:1,P:1}], ['指甲易碎裂且有縱溝',{T:1}], ['有骨質疏鬆和骨折問題',{E:1,A:.5,T:.5}], ['右肩部會感到壓迫或疼痛',{L:1}], ['無以上狀況',{}]
-]},
-{title:'10｜行動力、飢餓情緒與運動耐受', desc:'飢餓就心情差偏 P/C；運動能力下降需看 T/C/A 與粒線體、鐵與睡眠。', items:[
- ['缺乏行動力，遇事提不起勁',{C:.5,T:.5}], ['一餐不吃或者飢餓，就會心情很差',{P:1,C:.5}], ['運動能力變差',{T:.5,C:.5,A:.5}], ['（女性）懷孕生產後體重難以恢復下降',{T:.5,E:.5,P:.5}], ['無以上狀況',{}]
-]},
-{title:'11｜體型、半夜醒、舌象與毛髮', desc:'這區保留你原本標註，並把問號項目改成雙軸計分。', items:[
- ['上半身瘦、下半身肥',{E:1}], ['半夜凌晨 2:00–3:00 醒來',{L:1,C:.5}], ['舌面中心處有深裂縫或舌苔白膜',{L:1}], ['乾髮和脫髮',{T:1}], ['（男性）男性女乳症，或手臂、腿和胸前毛髮脫落',{A:1,E:.75,L:.5}], ['無以上狀況',{}]
-]},
-{title:'12｜傍晚疲勞、情緒、夜尿與眼白', desc:'傍晚疲勞較偏 C，合併 L；夜尿先列 C/P，需追問喝水、血糖、睡眠與泌尿。', items:[
- ['傍晚 7:30–8:00 特別疲勞，而清晨比較清醒',{C:1,L:.5}], ['經常覺得悲傷或沮喪',{T:.5,C:.5}], ['夜間頻尿，一夜起來如廁 2 次以上',{C:.5,P:.5}], ['眼白部分泛黃或經常有血絲',{L:1}], ['（女性）有卵巢或乳房囊腫病史',{E:1}], ['無以上狀況',{}]
-]},
-{title:'13｜壓力耐受、肩頸、低熱量減重與性慾', desc:'依你原始標註：C/L/T/E/A 為主。', items:[
- ['對壓力環境耐受度低，易怒和容易緊張',{C:1}], ['右肩和右頸部較容易僵硬和疼痛',{L:1}], ['有「吃低熱量食物減肥卻無法成功」的經驗',{T:1,C:.5}], ['（女性）單側膝蓋緊繃且疼痛，月經時更嚴重',{E:1}], ['性慾降低',{A:1,C:.5,T:.5}], ['無以上狀況',{}]
-]}
+{title:'第 1 區', items:[['上腹部肥大隆起',{L:1,C:.5}],['無法消化脂肪或油膩食物，尤其是在晚上更明顯',{L:1}],['喜歡食用大量的蛋白質食品',{L:.5,A:.5}],['每周飲酒三天以上',{L:1,C:.5}],['曾經使用高蛋白飲食（例如 Atkins）也瘦不下來',{L:1,T:.5,P:.5}],['曾經膽結石',{L:1}],['膽囊摘除了',{L:1}],['有肝病史（肝炎、肝膿瘍、脂肪肝、纖維化、腫瘤等）',{L:1}],['無以上狀況',{}]]},
+{title:'第 2 區', items:[['脖子、腋窩、胳膊、鼠蹊部等肢體摺痕處膚色特別黑',{P:1}],['有皮膚搔癢、慢性濕疹、異位性皮膚炎等皮膚困擾',{L:.5,C:.5,E:.5}],['有鼻子過敏搔癢、打噴嚏的困擾',{C:.5,L:.5}],['（女性）深受經痛所苦',{E:1}],['（女性）生理期有時候抓不到頻率',{E:1,C:.5,P:.5}],['下午會特別想吃甜食或飲料',{P:1,C:.5}],['常常吃飽後很快就覺得餓',{P:1}],['無以上狀況',{}]]},
+{title:'第 3 區', items:[['飲食及生活沒有太多改變，卻在短時間內變胖',{T:1,C:1,P:.5}],['會渴望甜食、糖飲、麵包或麵食',{P:1}],['會渴望鹹的食物或巧克力',{C:1}],['會渴望油炸食物或者馬鈴薯片',{L:1,P:.5}],['會渴望冰淇淋、奶油、乳酪、優酪乳或牛奶',{T:.5,L:.5,P:.5}],['無以上狀況',{}]]},
+{title:'第 4 區', items:[['經常感到不安焦慮和緊張',{C:1}],['每個月特定時間喜怒無常、煩躁易怒',{E:1,C:.5}],['經常感到沮喪或失望',{T:.5,C:.5}],['早上常感到煩躁、喜怒無常、脾氣暴躁',{C:1,P:.5}],['覺得已經失去活力和性慾',{A:1,T:.5,C:.5}],['無以上狀況',{}]]},
+{title:'第 5 區', items:[['需要咖啡或興奮劑才有辦法讓自己清醒',{C:1,T:.5}],['腹部右上區域或肋骨側下部有壓迫感',{L:1}],['覺得生活變得比較沒樂趣',{C:.5,T:.5}],['比較喜歡吃水果或漿果類',{L:.5,P:.5}],['經常便秘（女性：尤其在月經期間）',{T:1,L:.5,E:.5}],['無以上狀況',{}]]},
+{title:'第 6 區', items:[['體脂肪分佈不均勻',{E:.5,C:.5,P:.5}],['腹部突出（大肚腩）',{C:1,P:1,L:.5}],['大腿和臀部脂肪明顯（馬鞍部）、下腹凸出',{E:1}],['肚皮油脂增厚了（游泳圈）',{P:1,C:.5}],['腹部下垂，例如腹部垂懸、下垂、鬆弛',{C:.5,P:.5,A:.5}],['無以上狀況',{}]]},
+{title:'第 7 區', items:[['舌頭的兩側常會被牙齒咬到',{T:1}],['大腿肌肉無力或萎縮，難以從坐姿站起來',{A:1,T:.5,C:.5}],['身體經常有熱潮紅',{E:1}],['（男性）勃起時不夠堅挺',{A:1,P:.5,C:.5}],['尿色暗黃',{L:1}],['無以上狀況',{}]]},
+{title:'第 8 區', items:[['經常覺得體內發熱，好像慢性發炎',{C:.5,L:.5,P:.5}],['因為感覺冷，晚上穿襪子睡覺',{T:1}],['經常早上覺得頭痛或頭很重',{C:.5,P:.5,L:.5}],['（女性）經期外出血',{E:1}],['經常覺得虛弱無元氣',{T:.5,C:.5,A:.5}],['無以上狀況',{}]]},
+{title:'第 9 區', items:[['右下背部 / 臀部區域感到疼痛',{E:.5,C:.5}],['性別是女性，但臉上有毛髮過長的困擾',{A:1,P:1}],['指甲易碎裂且有縱溝',{T:1}],['有骨質疏鬆和骨折問題',{E:1,A:.5,T:.5}],['右肩部會感到壓迫或疼痛',{L:1}],['無以上狀況',{}]]},
+{title:'第 10 區', items:[['缺乏行動力，遇事提不起勁',{C:.5,T:.5}],['一餐不吃或者飢餓，就會心情很差',{P:1,C:.5}],['運動能力變差',{T:.5,C:.5,A:.5}],['（女性）懷孕生產後體重難以恢復下降',{T:.5,E:.5,P:.5}],['無以上狀況',{}]]},
+{title:'第 11 區', items:[['上半身瘦、下半身肥',{E:1}],['半夜凌晨 2:00–3:00 醒來',{L:1,C:.5}],['舌面中心處有深裂縫或舌苔白膜',{L:1}],['乾髮和脫髮',{T:1}],['（男性）男性女乳症，或手臂、腿和胸前毛髮脫落',{A:1,E:.75,L:.5}],['無以上狀況',{}]]},
+{title:'第 12 區', items:[['傍晚 7:30–8:00 特別疲勞，而清晨比較清醒',{C:1,L:.5}],['經常覺得悲傷或沮喪',{T:.5,C:.5}],['夜間頻尿，一夜起來如廁 2 次以上',{C:.5,P:.5}],['眼白部分泛黃或經常有血絲',{L:1}],['（女性）有卵巢或乳房囊腫病史',{E:1}],['無以上狀況',{}]]},
+{title:'第 13 區', items:[['對壓力環境耐受度低，易怒和容易緊張',{C:1}],['右肩和右頸部較容易僵硬和疼痛',{L:1}],['有「吃低熱量食物減肥卻無法成功」的經驗',{T:1,C:.5}],['（女性）單側膝蓋緊繃且疼痛，月經時更嚴重',{E:1}],['性慾降低',{A:1,C:.5,T:.5}],['無以上狀況',{}]]}
 ];
 const interp = {
  E:'優先追問：PMS/經痛、週期長短與出血型態、乳房/卵巢/子宮病史、便秘與肝腸排除、環境荷爾蒙暴露。',
@@ -192,16 +157,16 @@ const interp = {
  L:'優先追問：脂肪消化、酒精、右上腹/右肩頸、膽囊/膽結石、脂肪肝、便秘、皮膚過敏與排便。',
  P:'優先追問：餐後餓、甜食渴望、飯後昏沉、腰圍、皮膚摺痕色素、空腹血糖/胰島素與 HOMA-IR。'
 };
-function tagHTML(scores){return Object.keys(scores).map(k=>`<span class="chip ${k}" title="${axes[k].name} +${scores[k]}">${k}</span>`).join('')}
 function render(){
  document.getElementById('date').valueAsDate = new Date();
  const q = document.getElementById('questions');
- q.innerHTML = groups.map((g,gi)=>`<section class="card section" data-group="${gi}"><div class="qhead"><div><div class="qtitle">${g.title}</div><div class="qdesc">請勾選所有符合的狀況；若都沒有符合，請勾選「無以上狀況」。</div></div><span class="small">多選</span></div><div class="opts">${g.items.map((it,ii)=>`<label class="opt"><input type="checkbox" data-gi="${gi}" data-ii="${ii}" data-text="${it[0].replace(/"/g,'&quot;')}" data-score='${JSON.stringify(it[1])}'><span>${it[0]}</span></label>`).join('')}</div></section>`).join('');
+ q.innerHTML = groups.map((g,gi)=>`<section class="card section" data-group="${gi}"><div class="qhead"><div><div class="qtitle">${g.title}</div><div class="qdesc">請勾選所有符合的狀況；若都沒有符合，請勾選「無以上狀況」。</div></div><span class="small">多選</span></div><div class="opts">${g.items.map((it,ii)=>`<label class="opt"><input type="checkbox" data-gi="${gi}" data-ii="${ii}" data-text="${escapeAttr(it[0])}" data-score='${JSON.stringify(it[1])}'><span>${it[0]}</span></label>`).join('')}</div></section>`).join('');
  document.querySelectorAll('input[data-score]').forEach(cb=>cb.addEventListener('change',handleCheck));
  updateScores();
 }
+function escapeAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function handleCheck(e){
- const cb=e.target, gi=cb.dataset.gi; const noneText='無以上狀況';
+ const cb=e.target, gi=cb.dataset.gi, noneText='無以上狀況';
  const groupChecks=[...document.querySelectorAll(`input[data-gi="${gi}"]`)];
  if(cb.dataset.text===noneText && cb.checked){groupChecks.forEach(x=>{if(x!==cb)x.checked=false})}
  if(cb.dataset.text!==noneText && cb.checked){groupChecks.forEach(x=>{if(x.dataset.text===noneText)x.checked=false})}
@@ -213,97 +178,43 @@ function updateScores(){
  const total=[...document.querySelectorAll('input[data-score]')].filter(cb=>cb.dataset.text!=='無以上狀況').length;
  const picked=selected().filter(cb=>cb.dataset.text!=='無以上狀況').length;
  const pct=total ? Math.min(100, picked/Math.max(1,total)*100) : 0;
- document.getElementById('scorebar').innerHTML=`<div class="axis" style="grid-template-columns:84px 1fr 56px"><b>已勾選</b><div class="meter"><span style="width:${pct}%"></span></div><small>${picked} 項</small></div>`;
- document.getElementById('interpret').innerHTML='目前已勾選 '+picked+' 項。填寫完成後，請按「產生填寫摘要」，再複製傳給營養師。';
+ document.getElementById('scorebar').innerHTML=`<div class="axis"><b>已勾選</b><div class="meter"><span style="width:${pct}%"></span></div><small>${picked} 項</small></div>`;
+ document.getElementById('interpret').innerHTML='目前已勾選 '+picked+' 項。填寫完成後，請按「送出給營養師」。';
 }
-function checkedValues(name){return [...document.querySelectorAll(`input[name=\"${name}\"]:checked`)].map(x=>x.value)}
-function profile(){return {name:val('name'),date:val('date'),sex:val('sex'),age:val('age'),chief:checkedValues('chief'),height:val('height'),weight:val('weight'),waist:val('waist'),bodycomp:val('bodycomp'),bp:val('bp'),glucose:val('glucose'),labs:val('labs'),meds:val('meds'),supps:val('supps'),allergy:val('allergy'),femaleInfo:val('femaleInfo'),sleep:val('sleep'),worktime:val('worktime'),stress:val('stress'),exercise:val('exercise'),bowel:val('bowel'),cycleBowel:val('cycleBowel'),breakfast:val('breakfast'),lunch:val('lunch'),dinner:val('dinner'),water:val('water'),snacks:val('snacks'),caffeineAlcohol:val('caffeineAlcohol'),notes:val('notes')}}
+function checkedValues(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
 function val(id){return document.getElementById(id).value.trim()}
+function profile(){return {name:val('name'),date:val('date'),sex:val('sex'),age:val('age'),chief:checkedValues('chief'),height:val('height'),weight:val('weight'),waist:val('waist'),bodycomp:val('bodycomp'),bp:val('bp'),glucose:val('glucose'),labs:val('labs'),meds:val('meds'),supps:val('supps'),allergy:val('allergy'),femaleInfo:val('femaleInfo'),sleep:val('sleep'),worktime:val('worktime'),stress:val('stress'),exercise:val('exercise'),bowel:val('bowel'),cycleBowel:val('cycleBowel'),breakfast:val('breakfast'),lunch:val('lunch'),dinner:val('dinner'),water:val('water'),snacks:val('snacks'),caffeineAlcohol:val('caffeineAlcohol'),notes:val('notes')}}
+function selectedPublic(){return selected().filter(cb=>cb.dataset.text!=='無以上狀況').map(cb=>cb.dataset.text)}
+function selectedInternal(){return selected().map(cb=>({group:Number(cb.dataset.gi)+1,text:cb.dataset.text,score:JSON.parse(cb.dataset.score)}))}
 function internalSummary(){
  const s=calc(); const ranked=Object.entries(s).sort((a,b)=>b[1]-a[1]); const p=profile();
- const picks=selected().filter(cb=>cb.dataset.text!=='無以上狀況').map(cb=>`- ${cb.dataset.text}（${Object.entries(JSON.parse(cb.dataset.score)).map(([k,v])=>`${k}+${v}`).join('、')}）`).join('
-') || '未勾選症狀';
+ const picks=selectedInternal().filter(x=>x.text!=='無以上狀況').map(x=>`- 第${x.group}區｜${x.text}（${Object.entries(x.score).map(([k,v])=>`${k}+${v}`).join('、')}）`).join('\n') || '未勾選症狀';
  const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'';
- return `【代謝・荷爾蒙狀態問卷摘要】
-姓名或 LINE 名稱：${p.name||''}
-日期：${p.date||''}
-性別：${p.sex||''}　年齡：${p.age||''}
-主要困擾：${chiefText}
-
-【身體數據與檢查】
-身高：${p.height||''}　體重：${p.weight||''}　腰圍：${p.waist||''}
-體脂率 / 骨骼肌量：${p.bodycomp||''}
-血壓 / 心跳：${p.bp||''}
-血糖 / HbA1c / 胰島素：${p.glucose||''}
-近期檢查異常或重要病史：${p.labs||''}
-
-【用藥、保健品與特殊狀況】
-目前使用藥物：${p.meds||''}
-目前保健品：${p.supps||''}
-過敏 / 飲食禁忌：${p.allergy||''}
-女性補充：${p.femaleInfo||''}
-
-【作息、運動與排便】
-睡眠時間：${p.sleep||''}
-上下班 / 上課時間：${p.worktime||''}
-壓力程度：${p.stress||''}
-運動習慣：${p.exercise||''}
-排便狀況：${p.bowel||''}
-月經期間排便變化：${p.cycleBowel||''}
-
-【飲食概況】
-早餐：${p.breakfast||''}
-午餐：${p.lunch||''}
-晚餐：${p.dinner||''}
-水量：${p.water||''}
-正餐以外點心：${p.snacks||''}
-咖啡因 / 酒精頻率：${p.caffeineAlcohol||''}
-其他補充：${p.notes||''}
-
-【營養師內部計分】
-${ranked.map(([k,v])=>`${k} ${axes[k].name}：${v.toFixed(v%1?1:0)}`).join('
-')}
-
-【營養師優先追問】
-${ranked.filter(x=>x[1]>0).slice(0,3).map(([k,v],i)=>`${i+1}. ${k} ${axes[k].name}（${v.toFixed(v%1?1:0)}）：${interp[k]}`).join('
-') || '目前無明顯優先軸線'}
-
-【勾選項目】
-${picks}
-
-提醒：此問卷為營養諮詢前的線索整理，不作為疾病診斷。若有非經期出血、黃疸、嚴重疼痛、快速不明體重變化等，建議轉介醫師評估。`;
+ return `【代謝・荷爾蒙狀態問卷摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n性別：${p.sex||''}　年齡：${p.age||''}\n主要困擾：${chiefText}\n\n【身體數據與檢查】\n身高：${p.height||''}　體重：${p.weight||''}　腰圍：${p.waist||''}\n體脂率 / 骨骼肌量：${p.bodycomp||''}\n血壓 / 心跳：${p.bp||''}\n血糖 / HbA1c / 胰島素：${p.glucose||''}\n近期檢查異常或重要病史：${p.labs||''}\n\n【用藥、保健品與特殊狀況】\n目前使用藥物：${p.meds||''}\n目前保健品：${p.supps||''}\n過敏 / 飲食禁忌：${p.allergy||''}\n女性補充：${p.femaleInfo||''}\n\n【作息、運動與排便】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n壓力程度：${p.stress||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n月經期間排便變化：${p.cycleBowel||''}\n\n【飲食概況】\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n咖啡因 / 酒精頻率：${p.caffeineAlcohol||''}\n其他補充：${p.notes||''}\n\n【營養師內部計分】\n${ranked.map(([k,v])=>`${k} ${axes[k].name}：${v.toFixed(v%1?1:0)}`).join('\n')}\n\n【營養師優先追問】\n${ranked.filter(x=>x[1]>0).slice(0,3).map(([k,v],i)=>`${i+1}. ${k} ${axes[k].name}（${v.toFixed(v%1?1:0)}）：${interp[k]}`).join('\n') || '目前無明顯優先軸線'}\n\n【勾選項目】\n${picks}\n\n提醒：此問卷為營養諮詢前的線索整理，不作為疾病診斷。若有非經期出血、黃疸、嚴重疼痛、快速不明體重變化等，建議轉介醫師評估。`;
 }
 function makeSummary(){
- const p=profile();
- const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'未填寫';
- const picks=selected().filter(cb=>cb.dataset.text!=='無以上狀況').map(cb=>`- ${cb.dataset.text}`).join('
-') || '未勾選症狀';
- const display=`【填寫完成摘要】
-姓名或 LINE 名稱：${p.name||''}
-日期：${p.date||''}
-主要困擾：${chiefText}
-
-【生活與飲食補充】
-睡眠時間：${p.sleep||''}
-上下班 / 上課時間：${p.worktime||''}
-運動習慣：${p.exercise||''}
-排便狀況：${p.bowel||''}
-早餐：${p.breakfast||''}
-午餐：${p.lunch||''}
-晚餐：${p.dinner||''}
-水量：${p.water||''}
-正餐以外點心：${p.snacks||''}
-
-【已勾選狀況】
-${picks}
-
-請按「複製給營養師」，並將內容貼到 LINE 或訊息中傳送。`;
+ const p=profile(); const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'未填寫';
+ const picks=selectedPublic().map(x=>`- ${x}`).join('\n') || '未勾選症狀';
+ const display=`【填寫完成摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n主要困擾：${chiefText}\n\n【生活與飲食補充】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n\n【已勾選狀況】\n${picks}`;
  document.getElementById('summary').textContent=display;
  return display;
 }
-function copySummary(){makeSummary(); const text=internalSummary(); navigator.clipboard.writeText(text).then(()=>alert('已複製，請貼給營養師'));}
-function downloadJSON(){const data={profile:profile(),scores:calc(),selected:selected().map(cb=>({text:cb.dataset.text, score:JSON.parse(cb.dataset.score)}))}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-result.json'; a.click(); URL.revokeObjectURL(a.href);}
-function resetAll(){if(confirm('確定清空所有勾選與資料？')){document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='checkbox')el.checked=false; else el.value=''}); document.getElementById('date').valueAsDate=new Date(); updateScores(); document.getElementById('summary').textContent='按「產生填寫摘要」後會整理：基本資料、生活型態與勾選項目。';}}
+function buildPayload(){return {version:VERSION,submittedAt:new Date().toISOString(),profile:profile(),scores:calc(),selected:selectedInternal(),selectedPublic:selectedPublic(),summaryInternal:internalSummary(),summaryPublic:makeSummary(),userAgent:navigator.userAgent,pageUrl:location.href}}
+async function submitToSheet(){
+ const status=document.getElementById('submitStatus'); const btn=document.getElementById('submitBtn');
+ if(!val('name')){status.className='status err';status.textContent='請先填寫姓名或 LINE 名稱。';return}
+ if(!SHEET_WEB_APP_URL){status.className='status err';status.textContent='尚未設定 Google Sheet 接收網址。請營養師先完成後台設定。';return}
+ btn.disabled=true; status.className='status'; status.textContent='送出中，請稍候……';
+ try{
+   await fetch(SHEET_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(buildPayload())});
+   status.className='status ok'; status.textContent='已送出，謝謝填寫！營養師會依內容進行諮詢前整理。';
+ }catch(err){
+   console.error(err); status.className='status err'; status.textContent='送出失敗，請先使用「複製給營養師」或稍後再試。';
+ }finally{btn.disabled=false}
+}
+function copySummary(){makeSummary(); const text=internalSummary(); navigator.clipboard.writeText(text).then(()=>alert('已複製，請貼給營養師'))}
+function downloadJSON(){const data=buildPayload(); const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-result.json'; a.click(); URL.revokeObjectURL(a.href)}
+function resetAll(){if(confirm('確定清空所有勾選與資料？')){document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='checkbox')el.checked=false; else el.value=''}); document.getElementById('date').valueAsDate=new Date(); updateScores(); document.getElementById('summary').textContent='按「產生填寫摘要」後會整理：基本資料、生活型態與勾選項目。'; document.getElementById('submitStatus').textContent=''}}
 render();
 </script>
 </body>
