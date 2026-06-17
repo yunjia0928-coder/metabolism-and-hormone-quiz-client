@@ -120,21 +120,29 @@ footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}
 
   <div class="card" style="margin-top:16px">
     <h2>填寫摘要</h2>
-    <div id="summary" class="summary">按「產生填寫摘要」後會整理：基本資料、生活型態與勾選項目。</div>
-    <div class="controls"><button class="btn secondary" onclick="copySummary()">複製給營養師</button><button class="btn ghost" onclick="downloadJSON()">下載填寫資料</button></div>
+    <div id="summary" class="summary">按「產生填寫摘要」後會整理：基本資料、主要最高分類型、生活型態與勾選項目。</div>
+    <div class="controls"><button class="btn secondary" onclick="copySummary()">複製填寫摘要</button><button class="btn ghost" onclick="downloadPublicJSON()">下載填寫摘要</button></div>
   </div>
 
   <footer>本問卷用於營養諮詢前資料整理，不等同疾病診斷。</footer>
 </div>
 <script>
 /* 重要：建立 Google Apps Script 後，把部署得到的 Web App URL 貼到下面引號內 */
-const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwoJrqko82K4syJR2MdAern3yJQvb78ML9YVcNp7USRZXpu3jhSDT1EbeFKMb6H794j/exec";
-const VERSION = "client-submit-v3-2026-06-17";
+const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwUPSwz8LotkHVmxeFyqdQu0F1nM_gz6KsRHXZbsb4-V4_tKu1BprlpLtMHc9OaQEfb/exec";
+const VERSION = "client-submit-v4-public-top-type-2026-06-17";
 const axes = {
  E:{name:'雌激素 / 黃體素平衡'}, T:{name:'甲狀腺 / 能量代謝'}, A:{name:'睪固酮 / 肌肉性慾'},
  C:{name:'皮質醇 / 壓力節律'}, L:{name:'肝臟 / 膽汁解毒'}, P:{name:'胰島素 / 血糖代謝'}
 };
-const groups = [
+
+const publicTypeNames={
+ E:'雌激素代謝型',
+ T:'甲狀腺能量型',
+ A:'睪固酮肌力型',
+ C:'壓力調節型',
+ L:'肝膽代謝型',
+ P:'血糖代謝型'
+};const groups = [
 {title:'第 1 區', items:[['上腹部肥大隆起',{L:1,C:.5}],['無法消化脂肪或油膩食物，尤其是在晚上更明顯',{L:1}],['喜歡食用大量的蛋白質食品',{L:.5,A:.5}],['每周飲酒三天以上',{L:1,C:.5}],['曾經使用高蛋白飲食（例如 Atkins）也瘦不下來',{L:1,T:.5,P:.5}],['曾經膽結石',{L:1}],['膽囊摘除了',{L:1}],['有肝病史（肝炎、肝膿瘍、脂肪肝、纖維化、腫瘤等）',{L:1}],['無以上狀況',{}]]},
 {title:'第 2 區', items:[['脖子、腋窩、胳膊、鼠蹊部等肢體摺痕處膚色特別黑',{P:1}],['有皮膚搔癢、慢性濕疹、異位性皮膚炎等皮膚困擾',{L:.5,C:.5,E:.5}],['有鼻子過敏搔癢、打噴嚏的困擾',{C:.5,L:.5}],['（女性）深受經痛所苦',{E:1}],['（女性）生理期有時候抓不到頻率',{E:1,C:.5,P:.5}],['下午會特別想吃甜食或飲料',{P:1,C:.5}],['常常吃飽後很快就覺得餓',{P:1}],['無以上狀況',{}]]},
 {title:'第 3 區', items:[['飲食及生活沒有太多改變，卻在短時間內變胖',{T:1,C:1,P:.5}],['會渴望甜食、糖飲、麵包或麵食',{P:1}],['會渴望鹹的食物或巧克力',{C:1}],['會渴望油炸食物或者馬鈴薯片',{L:1,P:.5}],['會渴望冰淇淋、奶油、乳酪、優酪乳或牛奶',{T:.5,L:.5,P:.5}],['無以上狀況',{}]]},
@@ -174,12 +182,24 @@ function handleCheck(e){
 }
 function selected(){return [...document.querySelectorAll('input[data-score]:checked')];}
 function calc(){const s={E:0,T:0,A:0,C:0,L:0,P:0}; selected().forEach(cb=>{const sc=JSON.parse(cb.dataset.score); Object.entries(sc).forEach(([k,v])=>s[k]+=Number(v));}); return s;}
+function publicTopTypes(){
+ const scores=calc();
+ const ranked=Object.entries(scores).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
+ if(!ranked.length) return '尚未形成明顯分類';
+ const topScore=ranked[0][1];
+ const tied=ranked.filter(([,v])=>v===topScore).map(([k])=>publicTypeNames[k]);
+ return tied.join('、');
+}
+
 function updateScores(){
  const total=[...document.querySelectorAll('input[data-score]')].filter(cb=>cb.dataset.text!=='無以上狀況').length;
  const picked=selected().filter(cb=>cb.dataset.text!=='無以上狀況').length;
  const pct=total ? Math.min(100, picked/Math.max(1,total)*100) : 0;
  document.getElementById('scorebar').innerHTML=`<div class="axis"><b>已勾選</b><div class="meter"><span style="width:${pct}%"></span></div><small>${picked} 項</small></div>`;
- document.getElementById('interpret').innerHTML='目前已勾選 '+picked+' 項。填寫完成後，請按「送出給營養師」。';
+ const topTypes = publicTopTypes();
+ document.getElementById('interpret').innerHTML = picked
+   ? '目前已勾選 '+picked+' 項。<br><strong>目前主要最高分類型：</strong>'+topTypes+'<br><span class="small">此結果僅作為諮詢前整理線索，詳細方向會由營養師綜合判讀。</span>'
+   : '目前已勾選 0 項。填寫完成後，請按「送出給營養師」。';
 }
 function checkedValues(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
 function val(id){return document.getElementById(id).value.trim()}
@@ -195,7 +215,8 @@ function internalSummary(){
 function makeSummary(){
  const p=profile(); const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'未填寫';
  const picks=selectedPublic().map(x=>`- ${x}`).join('\n') || '未勾選症狀';
- const display=`【填寫完成摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n主要困擾：${chiefText}\n\n【生活與飲食補充】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n\n【已勾選狀況】\n${picks}`;
+ const topTypes = publicTopTypes();
+ const display=`【填寫完成摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n主要困擾：${chiefText}\n主要最高分類型：${topTypes}\n\n【生活與飲食補充】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n\n【已勾選狀況】\n${picks}`;
  document.getElementById('summary').textContent=display;
  return display;
 }
@@ -209,12 +230,12 @@ async function submitToSheet(){
    await fetch(SHEET_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(buildPayload())});
    status.className='status ok'; status.textContent='已送出，謝謝填寫！營養師會依內容進行諮詢前整理。';
  }catch(err){
-   console.error(err); status.className='status err'; status.textContent='送出失敗，請先使用「複製給營養師」或稍後再試。';
+   console.error(err); status.className='status err'; status.textContent='送出失敗，請稍後再試；或使用「複製填寫摘要」先保留公開摘要。';
  }finally{btn.disabled=false}
 }
-function copySummary(){makeSummary(); const text=internalSummary(); navigator.clipboard.writeText(text).then(()=>alert('已複製，請貼給營養師'))}
-function downloadJSON(){const data=buildPayload(); const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-result.json'; a.click(); URL.revokeObjectURL(a.href)}
-function resetAll(){if(confirm('確定清空所有勾選與資料？')){document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='checkbox')el.checked=false; else el.value=''}); document.getElementById('date').valueAsDate=new Date(); updateScores(); document.getElementById('summary').textContent='按「產生填寫摘要」後會整理：基本資料、生活型態與勾選項目。'; document.getElementById('submitStatus').textContent=''}}
+function copySummary(){const text=makeSummary(); navigator.clipboard.writeText(text).then(()=>alert('已複製填寫摘要'))}
+function downloadPublicJSON(){const data={version:VERSION,exportedAt:new Date().toISOString(),profile:profile(),selectedPublic:selectedPublic(),summaryPublic:makeSummary()}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-public-summary.json'; a.click(); URL.revokeObjectURL(a.href)}
+function resetAll(){if(confirm('確定清空所有勾選與資料？')){document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='checkbox')el.checked=false; else el.value=''}); document.getElementById('date').valueAsDate=new Date(); updateScores(); document.getElementById('summary').textContent='按「產生填寫摘要」後會整理：基本資料、主要最高分類型、生活型態與勾選項目。'; document.getElementById('submitStatus').textContent=''}}
 render();
 </script>
 </body>
