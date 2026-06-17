@@ -189,7 +189,7 @@ function publicTopTypes(){
  const topScore=ranked[0][1];
  const tied=ranked.filter(([,v])=>v===topScore).map(([k])=>publicTypeNames[k]);
  return tied.join('、');
-}
+}"
 
 function updateScores(){
  const total=[...document.querySelectorAll('input[data-score]')].filter(cb=>cb.dataset.text!=='無以上狀況').length;
@@ -212,15 +212,18 @@ function internalSummary(){
  const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'';
  return `【代謝・荷爾蒙狀態問卷摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n性別：${p.sex||''}　年齡：${p.age||''}\n主要困擾：${chiefText}\n\n【身體數據與檢查】\n身高：${p.height||''}　體重：${p.weight||''}　腰圍：${p.waist||''}\n體脂率 / 骨骼肌量：${p.bodycomp||''}\n血壓 / 心跳：${p.bp||''}\n血糖 / HbA1c / 胰島素：${p.glucose||''}\n近期檢查異常或重要病史：${p.labs||''}\n\n【用藥、保健品與特殊狀況】\n目前使用藥物：${p.meds||''}\n目前保健品：${p.supps||''}\n過敏 / 飲食禁忌：${p.allergy||''}\n女性補充：${p.femaleInfo||''}\n\n【作息、運動與排便】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n壓力程度：${p.stress||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n月經期間排便變化：${p.cycleBowel||''}\n\n【飲食概況】\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n咖啡因 / 酒精頻率：${p.caffeineAlcohol||''}\n其他補充：${p.notes||''}\n\n【營養師內部計分】\n${ranked.map(([k,v])=>`${k} ${axes[k].name}：${v.toFixed(v%1?1:0)}`).join('\n')}\n\n【營養師優先追問】\n${ranked.filter(x=>x[1]>0).slice(0,3).map(([k,v],i)=>`${i+1}. ${k} ${axes[k].name}（${v.toFixed(v%1?1:0)}）：${interp[k]}`).join('\n') || '目前無明顯優先軸線'}\n\n【勾選項目】\n${picks}\n\n提醒：此問卷為營養諮詢前的線索整理，不作為疾病診斷。若有非經期出血、黃疸、嚴重疼痛、快速不明體重變化等，建議轉介醫師評估。`;
 }
-function makeSummary(){
+function publicSummaryText(){
  const p=profile(); const chiefText=(p.chief&&p.chief.length)?p.chief.join('、'):'未填寫';
  const picks=selectedPublic().map(x=>`- ${x}`).join('\n') || '未勾選症狀';
  const topTypes = publicTopTypes();
- const display=`【填寫完成摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n主要困擾：${chiefText}\n主要最高分類型：${topTypes}\n\n【生活與飲食補充】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n\n【已勾選狀況】\n${picks}`;
+ return `【填寫完成摘要】\n姓名或 LINE 名稱：${p.name||''}\n日期：${p.date||''}\n主要困擾：${chiefText}\n主要最高分類型：${topTypes}\n\n【生活與飲食補充】\n睡眠時間：${p.sleep||''}\n上下班 / 上課時間：${p.worktime||''}\n運動習慣：${p.exercise||''}\n排便狀況：${p.bowel||''}\n早餐：${p.breakfast||''}\n午餐：${p.lunch||''}\n晚餐：${p.dinner||''}\n水量：${p.water||''}\n正餐以外點心：${p.snacks||''}\n\n【已勾選狀況】\n${picks}`;
+}
+function makeSummary(){
+ const display = publicSummaryText();
  document.getElementById('summary').textContent=display;
  return display;
 }
-function buildPayload(){return {version:VERSION,submittedAt:new Date().toISOString(),profile:profile(),scores:calc(),selected:selectedInternal(),selectedPublic:selectedPublic(),summaryInternal:internalSummary(),summaryPublic:makeSummary(),userAgent:navigator.userAgent,pageUrl:location.href}}
+function buildPayload(){return {version:VERSION,submittedAt:new Date().toISOString(),profile:profile(),scores:calc(),selected:selectedInternal(),selectedPublic:selectedPublic(),summaryInternal:internalSummary(),summaryPublic:publicSummaryText(),userAgent:navigator.userAgent,pageUrl:location.href}}
 async function submitToSheet(){
  const status=document.getElementById('submitStatus'); const btn=document.getElementById('submitBtn');
  if(!val('name')){status.className='status err';status.textContent='請先填寫姓名或 LINE 名稱。';return}
@@ -233,8 +236,8 @@ async function submitToSheet(){
    console.error(err); status.className='status err'; status.textContent='送出失敗，請稍後再試；或使用「複製填寫摘要」先保留公開摘要。';
  }finally{btn.disabled=false}
 }
-function copySummary(){const text=makeSummary(); navigator.clipboard.writeText(text).then(()=>alert('已複製填寫摘要'))}
-function downloadPublicJSON(){const data={version:VERSION,exportedAt:new Date().toISOString(),profile:profile(),selectedPublic:selectedPublic(),summaryPublic:makeSummary()}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-public-summary.json'; a.click(); URL.revokeObjectURL(a.href)}
+function copySummary(){const text=publicSummaryText(); document.getElementById('summary').textContent=text; navigator.clipboard.writeText(text).then(()=>alert('已複製填寫摘要'))}
+function downloadPublicJSON(){const data={version:VERSION,exportedAt:new Date().toISOString(),profile:profile(),selectedPublic:selectedPublic(),summaryPublic:publicSummaryText()}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='metabolism-hormone-questionnaire-public-summary.json'; a.click(); URL.revokeObjectURL(a.href)}
 function resetAll(){if(confirm('確定清空所有勾選與資料？')){document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='checkbox')el.checked=false; else el.value=''}); document.getElementById('date').valueAsDate=new Date(); updateScores(); document.getElementById('summary').textContent='按「產生填寫摘要」後會整理：基本資料、主要最高分類型、生活型態與勾選項目。'; document.getElementById('submitStatus').textContent=''}}
 render();
 </script>
